@@ -57,6 +57,9 @@ SoundCloudAPI.renderTrack = function( tracks) {
 			button.appendChild( icon );
 			button.appendChild( buttonText );
 
+			button.addEventListener('click',()=>{
+					SoundCloudAPI.embed(track.permalink_url);
+			})
 			// card
 			card.appendChild( imageDiv );
 			card.appendChild( content );
@@ -68,11 +71,17 @@ SoundCloudAPI.renderTrack = function( tracks) {
 			
 }
 
-SC.oEmbed('https://soundcloud.com/forss/flickermood', {
+SoundCloudAPI.embed=function(trackurl){
+	SC.oEmbed(trackurl, {
   auto_play: true
 }).then(function(embed){
   console.log('oEmbed response: ', embed);
 
   var sidebar=document.querySelector('.js-playlist');
-  sidebar.innerHTML=embed.html;
+
+  var box=document.createElement('div');
+  box.innerHTML=embed.html;
+
+  sidebar.insertBefore(box,sidebar.firstChild);
 });
+}
