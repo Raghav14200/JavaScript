@@ -1,4 +1,8 @@
 
+var sidebar=document.querySelector('.js-playlist');
+
+sidebar.innerHTML=localStorage.getItem('key');
+
 var SoundCloudAPI={};
 
 SoundCloudAPI.init=function(){
@@ -83,5 +87,6 @@ SoundCloudAPI.embed=function(trackurl){
   box.innerHTML=embed.html;
 
   sidebar.insertBefore(box,sidebar.firstChild);
+  localStorage.setItem('key',sidebar.innerHTML);
 });
 }
