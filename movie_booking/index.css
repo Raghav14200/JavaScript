@@ -1,0 +1,21 @@
+.movie{
+   width: 30vw;
+   margin: 0 auto;
+   height:40vh;
+   margin-top: 30vh;
+}
+
+body{
+   margin: 0;
+   padding: 0;
+   height:100vh;
+   background-color: #ffffff ;
+}
+
+select{
+   width: 60%;
+   height: 30px;
+   text-decoration: none;
+   outline: none;
+   text-align: center;
+}
